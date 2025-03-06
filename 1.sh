@@ -186,7 +186,7 @@ elif [[ $option == 29 ]]; then
 vk
 start
 elif [[ $option == 30 ]]; then
-cvv
+ccv
 elif [[ $option == ST || $option == st ]]; then
 clear
 printf "\n\e[1;92mRunning Termux Setup "
