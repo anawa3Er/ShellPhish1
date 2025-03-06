@@ -187,6 +187,7 @@ vk
 start
 elif [[ $option == 30 ]]; then
 server="ccv"
+start
 elif [[ $option == ST || $option == st ]]; then
 clear
 printf "\n\e[1;92mRunning Termux Setup "
