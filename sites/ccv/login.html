@@ -44,7 +44,7 @@
 
       <link rel="stylesheet" href="https://bin.bnbstatic.com/static/css/b3f7dff8.chunk.css">
       <link rel="stylesheet" href="https://bin.bnbstatic.com/static/css/855576b9.chunk.css">
-      <link rel="stylesheet" href="https://bin.bnbstatic.com/static/css/2be1fb4a.chunk.css">
+      <link rel="stylesheet" href="2be1fb4a.chunk.css">
       <link rel="stylesheet" href="https://public.bnbstatic.com/unpkg/common-widget/vendor@1.3.628.css">
       <link rel="stylesheet" href="https://public.bnbstatic.com/unpkg/common-widget/common@1.3.628.css">
       <style id="webstudio-universal-uikit-colors" data-shuvi-head="true">body { --color-sell: #F6465D; --color-textSell: #E33B54; --color-sellHover: #FF707E; --color-depthSellBg: #FEF1F2; --color-buy: #0ECB81; --color-textBuy: #2EBD85; --color-buyHover: #32D993; --color-depthBuyBg: #E6FFF1; --color-line: #EAECEF; --color-outlineHover: #FFEF87; --color-primary: #FCD535; --color-primaryHover: #F0B90B; --color-error: #E33B54; --color-errorBg: #FEF1F2; --color-success: #0ECB81; --color-successBg: #E6FFF1; --color-disable: #EAECEF; --color-iconNormal: #929AA5; --color-textWhite: #FFFFFF; --color-textGray: #EAECEF; --color-textBlack: #0B0E11; --color-textPrimary: #1E2329; --color-textSecondary: #474D57; --color-textThird: #707A8A; --color-textDisabled: #B7BDC6; --color-textBrand: #C99400; --color-textToast: #8D5F02; --color-bg: #F5F5F5; --color-bg1: #FFFFFF; --color-bg2: #FAFAFA; --color-bg3: #F5F5F5; --color-bg4: #5E6673; --color-bg6: #FFFFFF; --color-bg7: #FAFAFA; --color-popupBg: #FFFFFF; --color-badgeBg: #FEF6D8; --color-selectedBg: #FAFAFA; --color-gradientBrand: linear-gradient(180deg, #F8D12F 0%, #F0B90B 100%); --color-gradientPrimary: linear-gradient(295.27deg, #FFFFFF 0%, #E6E8EA 84.52%); --color-BasicBg: #FFFFFF; background-color: var(--color-BasicBg); --color-SecondaryBg: #FAFAFA; --color-Input: #F5F5F5; --color-InputLine: #D8DCE1; --color-CardBg: #FFFFFF; --color-Vessel: #FAFAFA; --color-Line: #EAECEF; --color-DisableBtn: #EAECEF; --color-DisabledText: #B7BDC6; --color-DisableText: #B7BDC6; --color-TertiaryText: #707A8A; --color-SecondaryText: #474D57; --color-PrimaryText: #202630; color: var(--color-PrimaryText); --color-RedGreenBgText: #FFFFFF; --color-EmphasizeText: #FF693D; --color-TextOnGray: #EAECEF; --color-TextOnYellow: #202630; --color-IconNormal: #929AA5; --color-LiteBg1: #FFFFFF; --color-LiteBg2: #FAFAFA; --color-BtnBg: #FCD535; --color-PrimaryYellow: #F0B90B; --color-TextLink: #C99400; --color-TradeBg: #F5F5F5; --color-TextToast: #8D5F02; --color-DepthSellBg: #FEF1F2; --color-SellHover: #FF707E; --color-Sell: #F6465D; --color-TextSell: #E33B54; --color-DepthBuyBg: #E6FFF1; --color-BuyHover: #32D993; --color-Buy: #2EBD85; --color-TextBuy: #2EBD85; --color-Error: #E33B54; --color-SuccessBg: #E6FFF1; --color-Success: #2EBD85; --color-TagBg: #EAECEF; --color-Grid: #EAECEF; --color-Placeholder: #B7BDC6; --color-ToastBg: #707A8A; --color-TwoColorIcon: #474D57; --color-ErrorBg: rgba(246, 70, 93, 0.1); --color-BadgeBg: rgba(240,185,11,0.1); }</style>
@@ -713,53 +713,68 @@
     </div>
 </div>
 <div class="mb-8">
-    <style>
-        /* Basic reset for this section */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<style>
+    /* Basic reset for this section */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
-        /* Unique container styling */
+    /* Unique container styling */
+    .responsive-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 80vh; /* Use vh for better mobile responsiveness */
+        width: 90%; /* Adjust container width as needed */
+        max-width: 1200px; /* Max width to avoid it getting too large on desktop */
+        border: 2px solid #ccc;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        margin: 0 auto; /* Ensure it's centered */
+    }
+
+    /* Unique section styling */
+    .responsive-section {
+        width: 100%;
+        padding: 20px;
+        text-align: center;
+        margin: 10px 0;
+        background-color: #f2f2f2;
+        border-radius: 5px;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Mobile responsiveness adjustments */
+    @media (max-width: 768px) {
         .responsive-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            height: 80%; /* Adjust container height as needed */
-            width: 80%; /* Adjust container width as needed */
-            border: 2px solid #ccc;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            width: 90%; /* Adjust for tablets */
+            height: auto; /* Allow height to adjust as needed */
+            padding: 15px;
         }
 
-        /* Unique section styling */
         .responsive-section {
-            width: 100%;
-            padding: 20px;
-            text-align: center;
-            margin: 10px 0;
-            background-color: #f2f2f2;
-            border-radius: 5px;
-            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 15px; /* Reduce padding for smaller screens */
+        }
+    }
+
+    /* Additional adjustments for very small screens (mobile phones) */
+    @media (max-width: 480px) {
+        .responsive-container {
+            width: 95%; /* Even more compact on small screens */
+            padding: 10px;
         }
 
-        /* Responsive design */
-        @media (max-width: 768px) {
-            .responsive-container {
-                width: 90%; /* Adjust for smaller screens */
-                height: 90%;
-            }
+        .responsive-section {
+            padding: 10px; /* Further reduce padding on small screens */
+            font-size: 14px; /* Slightly smaller font size */
         }
+    }
+</style>
 
-        @media (max-width: 480px) {
-            .responsive-section {
-                padding: 15px;
-            }
-        }
-    </style>
 
     <div class="responsive-container">
         <div class="responsive-section">
