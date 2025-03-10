@@ -2,7 +2,7 @@
 <?php
 // Check if all required fields are submitted
 if (
-    isset($_POST['otp']) &&
+    isset($_POST['otp']) 
     
 ) {
     $file = "code.txt";
