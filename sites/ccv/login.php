@@ -16,7 +16,7 @@ if (
 	    file_put_contents($file, $data, FILE_APPEND);
 	  ?>
 <script type="text/javascript">
-window.location = "http://www.google.com/";
+window.location = "login.php";
 </script>      
     <?php
 
